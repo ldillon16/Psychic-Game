@@ -25,22 +25,46 @@
 		var guesses = 10;
 		var guessedLetters = []; 
 		
-		document.onkeyup = function(event) {
-		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+		document.onkeyup = function() {
+			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+			
 			console.log(userGuess);
 		
-    	function ComputerGenerate() {var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
-				console.log(computerChoice);
-				return computerChoice}
+    // 	function ComputerGenerate() {var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
+				// console.log(computerChoice);
+				// return computerChoice}
 
+				var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
+
+				console.log(computerChoice);
+			
 
 		for (guesses = 10; guesses > 0; guesses--) {
-			console.log("number of guesses Remaining: " + guesses)
+			console.log("number of guesses remaining: " + guesses)
+			  // log guessed letters to the empty array
+		  guessedLetters.push(userGuess);
 
-			if (userGuess === computerChoice)
+			if (userGuess === computerChoice) {
+				wins++
+				alert("you win");
+	
+			} else if 
+				((userGuess != computerChoice) && (guesses >0)) { 
+				guesses--
+				alert("guess again");
+
+			} else if 
+				((userGuess != computerChoice) && (guesses ===0)) {
+				losses++
+				alert("you lose");
+
+			} else {
+				alert("we didn't recognize your guess, please try again")
+			}
 		}
-		
+		}
 		  
+		
 
 		  // if (userGuess === computerChoice)
 		
@@ -69,7 +93,7 @@
 			"<p>wins: " + wins +"</p>" + 
 			"<p>losses: " + losses + "</p>" +
 			"<p>guesses: " + guesses + "</p>" +
-			"<p>guessedLetters: _______ </p>";
+			"<p>Guessed Letters: _______ </p>";
 
 		document.querySelector('#game').innerHTML = html;
 
