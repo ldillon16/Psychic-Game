@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang='en-us'>
+<html lang="en-us">
 
 <head>
-  <meta charset='UTF-8'></meta>
+  <meta charset="UTF-8"></meta>
 
    <!-- <script src="game.js"></script>  -->
  
@@ -11,62 +11,82 @@
 
 <body>
 
-	<div id='game'>
+	<div id="game">
 		<p>Try to guess which letter the computer is thinking!</p>
+		<p id = "wins">Wins: </p>
+		<p id = "losses">Losses: </p>
+		<p id = "guesses">Guesses Remaining: </p>
+		<p id = "guessedLetters">Letters Guessed: </p>
 	</div>
-	<button onclick= 'location.reload()'>Play Again</button>
+	<button onclick= "location.reload()">Play Again</button>
 
 <script language='javascript' type='text/javascript'>
 		
-		var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-		var wins = 0;
+		
+
+
+
+    var wins = 0;
 		var losses = 0;
 		var guesses = 10;
 		var guessedLetters = []; 
-		
-		document.onkeyup = function() {
-			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-			
-			console.log(userGuess);
-		
-    // 	function ComputerGenerate() {var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
-				// console.log(computerChoice);
-				// return computerChoice}
+		var computerChoice = "";
 
-				var computerChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
 
+		
+  	var computerLetter = Math.floor(Math.random()*alphabet.length);
+				computerChoice = alphabet[computerLetter];
 				console.log(computerChoice);
-			
+
 
 		for (guesses = 10; guesses > 0; guesses--) {
 			console.log("number of guesses remaining: " + guesses)
 			  // log guessed letters to the empty array
-		  guessedLetters.push(userGuess);
 
-			if (userGuess === computerChoice) {
+			document.getElementById("wins").innerHTML = "Wins: " + wins;
+			document.getElementById("losses").innerHTML = "Losses: " + losses;
+			document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guesses;
+			document.getElementById("guessedLetters").innerHTML = "Guessed Letters: " + guessedLetters;
+			
+
+			var actualUserGuess = prompt("enter your guess");
+			// document.onkeyup= function() {
+			// 	var userGuess = String.fromCharCode(event.keycode).toLowerCase();
+			// 	console.log(userGuess);
+			// 	return(userGuess);
+			// }
+
+			console.log(actualUserGuess);
+
+			guessedLetters.push(actualUserGuess);
+		  
+
+			if (actualUserGuess == computerChoice) {
 				wins++
 				alert("you win");
 	
 			} else if 
-				((userGuess != computerChoice) && (guesses >0)) { 
+				((actualUserGuess != computerChoice) && (guesses >0)) { 
 				guesses--
 				alert("guess again");
 
 			} else if 
-				((userGuess != computerChoice) && (guesses ===0)) {
+				((actualUserGuess != computerChoice) && (guesses ===0)) {
 				losses++
 				alert("you lose");
 
 			} else {
-				alert("we didn't recognize your guess, please try again")
+				alert("we didn't recognize your guess, please try again");
 			}
-		}
-		}
-		  
+
+		 }
+		
+		
+		 
 		
 
-		  // if (userGuess === computerChoice)
 		
 		
 			
@@ -78,24 +98,15 @@
 			// }
 
 
- //    // if (userGuess === computerChoice) {
- //    	// wins++;
- //    } else {
- //    	guesses--;
- //    }
-		
-	// 	if (guesses = 0){
-	// 		losses++
-	// 		alert("you lose");
-	// 	 }
-		
-		var html = "<p>Try to guess which letter the computer is thinking!</p>" + 
-			"<p>wins: " + wins +"</p>" + 
-			"<p>losses: " + losses + "</p>" +
-			"<p>guesses: " + guesses + "</p>" +
-			"<p>Guessed Letters: _______ </p>";
 
-		document.querySelector('#game').innerHTML = html;
+		
+		// var html = '<p>Try to guess which letter the computer is thinking!</p>' + 
+		// 	'<p>wins: ' + wins +'</p>' + 
+		// 	'<p>losses: ' + losses + '</p>' +
+		// 	'<p>guesses: ' + guesses + '</p>' +
+		// 	'<p>Guessed Letters: ' + guessedLetters + '</p>';
+
+		// document.querySelector('#game').innerHTML = html;
 
 
 
@@ -105,9 +116,7 @@
 
 
 
-// document.getElementbyId('wins').innerHTML = 'Wins: ' + wins;
-// document.getElementbyId('losses').innerHTML = 'Losses: ' + losses;
-// document.getElementbyId('guesses').innerHTML = 'Guesses Remaining: ' + guesses;
+
 
 
 
