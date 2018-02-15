@@ -33,6 +33,7 @@
 		var guesses = 10;
 		var guessedLetters = []; 
 		var computerChoice = "";
+		var actualUserGuess = 0;
 
 
 		
@@ -51,12 +52,12 @@
 			document.getElementById("guessedLetters").innerHTML = "Guessed Letters: " + guessedLetters;
 			
 
-			var actualUserGuess = prompt("enter your guess");
-			// document.onkeyup= function() {
-			// 	var userGuess = String.fromCharCode(event.keycode).toLowerCase();
-			// 	console.log(userGuess);
-			// 	return(userGuess);
-			// }
+			while actualUserGuess = 0 {
+				actualUserGuess = document.onkeyup= function() {
+					userGuess = String.fromCharCode(event.keycode).toLowerCase();
+					console.log(userGuess);
+					return(userGuess);
+			}
 
 			console.log(actualUserGuess);
 
@@ -81,6 +82,7 @@
 				alert("we didn't recognize your guess, please try again");
 			}
 
+			actualUserGuess = 0;
 		 }
 		
 		
@@ -100,11 +102,7 @@
 
 
 		
-		// var html = '<p>Try to guess which letter the computer is thinking!</p>' + 
-		// 	'<p>wins: ' + wins +'</p>' + 
-		// 	'<p>losses: ' + losses + '</p>' +
-		// 	'<p>guesses: ' + guesses + '</p>' +
-		// 	'<p>Guessed Letters: ' + guessedLetters + '</p>';
+	
 
 		// document.querySelector('#game').innerHTML = html;
 
