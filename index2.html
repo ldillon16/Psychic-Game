@@ -46,7 +46,7 @@
 				actualUserGuess = document.onkeyup= function() {
 					userGuess = String.fromCharCode(event.keycode).toLowerCase();
 					console.log(userGuess);
-					return(userGuess);}
+					// return(userGuess);}
 			}
 			console.log(actualUserGuess);
 			guessedLetters.push(actualUserGuess);
@@ -58,21 +58,22 @@
 			} else if 
 				((actualUserGuess != computerChoice) && (guesses >0)) { 
 				guesses--
-				alert("guess again");
+				// alert("guess again");
 			} else if 
 				((actualUserGuess != computerChoice) && (guesses ===0)) {
 				losses++
-				alert("you lose");
+				// alert("you lose");
 			} else {
-				alert("we didn't recognize your guess, please try again");
+				// alert("we didn't recognize your guess, please try again");
 			}
 			actualUserGuess = 0;
 		 }
+		}
 		
 		
 		 
 		
-		
+		// this is all (more) garbage I was trying to make work:
 		
 			
 			// if (userGuess== 'a' || userGuess== 'b' || userGuess== 'c' || userGuess== 'd' || userGuess== 'e' || userGuess== 'f' || userGuess== 'g' || userGuess== 'h' || userGuess === 'i' || userGuess === 'j' || userGuess === 'k' || userGuess ===  'l' || userGuess === 'm' || userGuess === 'n' || userGuess === 'o' || userGuess === 'p' || userGuess === 'q' || userGuess === 'r' || userGuess === 's' || userGuess === 't' ||userGuess === 'u' || userGuess === 'v' || userGuess === 'w' || userGuess === 'x' || userGuess === 'y' || 'z') {
