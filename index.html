@@ -52,11 +52,11 @@
 			document.getElementById("guessedLetters").innerHTML = "Guessed Letters: " + guessedLetters;
 			
 
-			while actualUserGuess = 0 {
+			while (actualUserGuess == 0) {
 				actualUserGuess = document.onkeyup= function() {
 					userGuess = String.fromCharCode(event.keycode).toLowerCase();
 					console.log(userGuess);
-					return(userGuess);
+					return(userGuess);}
 			}
 
 			console.log(actualUserGuess);
